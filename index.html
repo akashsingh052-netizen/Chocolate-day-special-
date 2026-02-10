@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Teddy Day 🧸</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+  background: #ffd6e8;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Floating Hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+.page {
+  display: none;
+  padding: 30px;
+}
+
+.page.active {
+  display: block;
+}
+
+h1 {
+  color: #8b2f5b;
+}
+
+p {
+  color: #6b2146;
+  font-size: 18px;
+}
+
+button {
+  margin-top: 25px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  background: #ff8fb8;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff6fa5;
+}
+
+img {
+  width: 200px;
+  margin: 20px 0;
+}
+
+.box {
+  background: #ffeaf3;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 300px;
+}
+
+.quote {
+  font-style: italic;
+}
+
+/* Cursor Teddy */
+#cursorTeddy {
+  position: fixed;
+  width: 60px;
+  pointer-events: none;
+  transition: transform 0.1s linear;
+  z-index: 999;
+}
+</style>
+</head>
+
+<body>
+
+<img src="bubu.gif" id="cursorTeddy">
+
+<div class="page active">
+  <h1>Hey cutiee 💕 welcome to Teddy Land 🧸</h1>
+  <p>No entry without cuteness overloaded 🧸</p>
+  <img src="bubu.gif">
+  <br>
+  <button onclick="nextPage()">See Teddy 🧸</button>
+</div>
+
+<div class="page">
+  <img src="hug.gif">
+  <p>Surprise pookie 🤍 here’s a special hug from your teddy 🧸</p>
+  <button onclick="nextPage()">Next adventure 💗</button>
+</div>
+
+<div class="page">
+  <div class="box">
+    <img src="bear-hug.gif">
+    <p class="quote">Two teddies, one warm hug, endless comfort</p>
+  </div>
+  <p>You’re my favourite teddy bear in the whole wide world 🧸</p>
+  <button onclick="nextPage()">Next pookie 💕</button>
+</div>
+
+<div class="page">
+  <div class="box">
+    <img src="dudu-scared-bubu-dudu-kiss.gif">
+    <p class="quote">Where hugs live, worries disappear</p>
+  </div>
+  <p>Sending you the biggest pookie bear hugs 🤍😊</p>
+  <button onclick="nextPage()">Next pookie note 🧸</button>
+</div>
+
+<div class="page">
+  <div class="box">
+    <img src="bear-hug.gif">
+    <p class="quote">You make everything feel soft and safe</p>
+  </div>
+  <p>You make my heart do a happy dance, my little teddy 😊</p>
+  <button onclick="nextPage()">Next pookie note 💗</button>
+</div>
+
+<div class="page">
+  <div class="box">
+    <img src="cat.gif">
+    <p class="quote">Sweetness level: Teddy bear certified</p>
+  </div>
+  <p>You’re sweeter than cotton candy, my pookie bear 🍬</p>
+  <button onclick="nextPage()">Next adventure 🧸</button>
+</div>
+
+<div class="page">
+  <img src="hug.gif">
+  <p class="quote">Every day is magical with my favourite teddy 🌈❤️</p>
+  <button onclick="nextPage()">Last surprise 💕</button>
+</div>
+
+<div class="page">
+  <h1>Happy Teddy Day 🧸</h1>
+  <img src="bubu.gif">
+  <p class="quote">
+    You are my comfort on tough days, my smile on ordinary days,
+    and my softest thought every single night.
+    Just like a teddy, you make everything feel warm, safe,
+    and a little more beautiful.
+    I’m so lucky to have someone who fills my heart with happiness,
+    calm, and endless cute moments.
+    You’ll always be my favourite teddy in this big world 🤍
+  </p>
+</div>
+
+<script>
+let current = 0;
+const pages = document.querySelectorAll('.page');
+
+function nextPage() {
+  pages[current].classList.remove('active');
+  current++;
+  pages[current].classList.add('active');
+}
+
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 7000);
+}, 500);
+
+const teddy = document.getElementById("cursorTeddy");
+
+document.addEventListener("mousemove", e => {
+  teddy.style.left = e.clientX + 10 + "px";
+  teddy.style.top = e.clientY + 10 + "px";
+});
+
+document.addEventListener("touchmove", e => {
+  teddy.style.left = e.touches[0].clientX + 10 + "px";
+  teddy.style.top = e.touches[0].clientY + 10 + "px";
+});
+</script>
+
+</body>
+</html>
